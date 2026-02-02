@@ -61,9 +61,9 @@ button.addEventListener("click", () => {
     
 
     buttonCount += 1;
-    if (buttonCount > 20 && buttonCount <= 20 + cheersExcessiveButtonText.length) {
-        button.textContent = cheersExcessiveButtonText[buttonCount - 21];
-    } else if (buttonCount > 20 + cheersExcessiveButtonText.length) {
+    if (buttonCount > 10 && buttonCount <= 10 + cheersExcessiveButtonText.length) {
+        button.textContent = cheersExcessiveButtonText[buttonCount - 11];
+    } else if (buttonCount > 10 + cheersExcessiveButtonText.length) {
         button.disabled = true;
     } else {
         console.log(`Button clicked ${buttonCount} times`);
