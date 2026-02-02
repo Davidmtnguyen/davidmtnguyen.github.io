@@ -1,0 +1,40 @@
+/* styles.css */
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color: #fffafc;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#cheers {
+  margin-top: 20px;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+#cheers.show {
+  opacity: 1;
+}
+
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* clicks pass through */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
