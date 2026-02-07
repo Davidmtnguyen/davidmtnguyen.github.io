@@ -29,6 +29,41 @@ button {
   opacity: 1;
 }
 
+#questionSection {
+  margin-top: 40px;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  pointer-events: none;
+}
+
+#questionSection.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#questionSection.hidden {
+  display: none;
+}
+
+#questionText {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+#buttonContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.response-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
 #confettiCanvas {
   position: fixed;
   top: 0;

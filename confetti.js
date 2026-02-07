@@ -80,7 +80,7 @@ export class Confetti {
         this.resetParticles();
         console.log("Stopped")
         this.running = false;
-    }, 2500);
+    }, 3000);
   }
 
   loop() {

@@ -1,0 +1,267 @@
+/* valentines.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    animation: pinkFade 1s ease-in forwards;
+}
+
+@keyframes pinkFade {
+    from {
+        background-color: #ffffff;
+    }
+    to {
+        background-color: #ffc0d9;
+    }
+}
+
+#heartCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.content {
+    text-align: center;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeInContent 1s ease-in 3s forwards;
+}
+
+.content.hidden {
+    display: none;
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.heart {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 40px;
+    opacity: 0;
+    animation: heartPulse 2s ease-in 1.5s forwards;
+    filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.6));
+}
+
+@keyframes heartPulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        animation: heartBeat 1s ease-in-out 4s infinite;
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+#question {
+    font-size: 2.5rem;
+    color: #ff1493;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn .5s ease-in .25s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Removed shrink animation for text */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in 4.5s forwards;
+    min-width: 380px;
+}
+
+.button-container.centered {
+    /* Stay the same width when centered */
+    gap: 0;
+}
+
+.button-container.centered .yes-btn {
+    width: 250px;
+}
+
+.large-btn {
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex: 0 0 auto;
+}
+
+.yes-btn {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.no-btn {
+    background-color: #cccccc;
+    color: #333;
+    position: relative;
+}
+
+.no-btn:hover {
+    background-color: #999999;
+}
+
+.no-btn.shrink {
+    animation: shrinkButton 0.5s ease-in forwards;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+}
+
+@keyframes shrinkButton {
+    from {
+        padding: 20px 50px;
+        font-size: 1.5rem;
+    }
+    to {
+        padding: 16px 40px;
+        font-size: 1.2rem;
+    }
+}
+
+.dim-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dim-overlay.show {
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.dim-overlay.hidden {
+    display: none;
+}
+
+.celebration-text-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #ff1493;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.celebration-text-display.show {
+    opacity: 1;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.celebration-text-display.hidden {
+    display: none;
+}
+
+.celebrate-again-container {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.celebrate-again-container.show {
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+.celebrate-again-container.hidden {
+    display: none;
+}
+
+.celebrate-btn {
+    background-color: #ff69b4;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.celebrate-btn:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+#celebrationContainer {
+    z-index: 10;
+}
+
+#celebrationContainer.hidden {
+    display: none;
+}
